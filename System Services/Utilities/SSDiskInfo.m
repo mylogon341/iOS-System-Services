@@ -68,14 +68,14 @@
             // Get the total amount of space
             long long TotalSpace = [self longDiskSpace];
             // Make a float to get the percent of those values
-            float PercentDiskSpace = (Space * 100) / TotalSpace;
+            float PercentDiskSpace = (Space * 100.0f) / TotalSpace;
             // Check it to make sure it's okay
             if (PercentDiskSpace <= 0) {
                 // Error, invalid percent
                 return nil;
             }
             // Convert that float to a string
-            diskSpace = [NSString stringWithFormat:@"%.f%%", PercentDiskSpace];
+            diskSpace = [NSString stringWithFormat:@"%.1f%%", PercentDiskSpace];
         } else {
             // Turn that long long into a string
             diskSpace = [self formatMemory:Space];
@@ -128,14 +128,14 @@
         // If the user wants the output in percentage
         if (inPercent) {
             // Make a float to get the percent of those values
-            float percentUsedDiskSpace = (uds * 100) / tds;
+            float percentUsedDiskSpace = (uds * 100.0) / tds;
             // Check it to make sure it's okay
             if (percentUsedDiskSpace <= 0) {
                 // Error, invalid percent
                 return nil;
             }
             // Convert that float to a string
-            usedDiskSpace = [NSString stringWithFormat:@"%.f%%", percentUsedDiskSpace];
+            usedDiskSpace = [NSString stringWithFormat:@"%.1f%%", percentUsedDiskSpace];
         } else {
             // Turn that long long into a string
             usedDiskSpace = [self formatMemory:uds];
